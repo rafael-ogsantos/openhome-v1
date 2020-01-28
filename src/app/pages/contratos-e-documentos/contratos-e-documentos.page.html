@@ -1,0 +1,23 @@
+<app-get-layout>
+	
+<form (submit)="setCadastro($event, f)" #f>
+	<section id="buscar-imoveis">
+		<app-get-title title="Contratos e Documentos" [buscar]="buscar" [filter]="filtros"></app-get-title>
+
+		<div class="doc-list">
+			<h4>Selecione um contrato</h4>
+			<div class="row align-items-center" *ngIf="docs">
+				<div class="col-12 col-lg-6 col-tv-4" *ngFor="let doc of docs">
+					<div class="document">
+						<mat-icon>description</mat-icon>
+						<div class="name">{{ doc.title }}</div>
+						<a [href]="doc.url" target="_blank" mat-raised-button [color]="doc.button">Selecionar</a>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</section>
+</form>
+
+</app-get-layout>

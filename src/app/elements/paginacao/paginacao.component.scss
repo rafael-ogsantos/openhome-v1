@@ -1,0 +1,18 @@
+@import '../../../assets/scss/config';
+
+.paginacao {
+    text-align: center;
+    padding: 1em;
+
+    a {
+	    display: inline-block;
+	    color: color('azul');
+	    text-decoration: none;
+	    margin: 0 .36em;
+	    transition: all 100ms ease-out;
+
+	    &.active, &:not(.active):hover {
+	    	transform: scale(1.4);
+	    }
+	}
+}

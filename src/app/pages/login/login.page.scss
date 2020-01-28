@@ -1,0 +1,131 @@
+@import '../../../assets/scss/config';
+
+// ====================================== (:
+//	# Background image
+// ====================================== :)
+
+.cover {
+	background-image: url('../../../assets/img/login.jpg');
+	background-size: cover;
+	background-position: center center;
+	background-repeat: no-repeat;
+    min-height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+}
+
+
+// ====================================== (:
+//	# Login container
+// ====================================== :)
+
+#login {
+	position: absolute;
+	top: 42%; left: 50%;
+	transform: translate(-50%,-50%);
+	max-width: 360px;
+	width: calc( 100% - 2rem );
+	margin: 0 auto;
+
+	.form-control {
+		display: block;
+		padding: 1rem;
+		margin-bottom: 2px;
+		width: 100%;
+		box-sizing: border-box;
+		background-color: #FFF;
+		border: 0px solid #AAA;
+		border-radius: 1px;
+		background-color: map-get($cores,'branco');
+		color: map-get($cores,'preto');
+		box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+	}
+
+	.btn-block {
+		display: block;
+		width: calc(100% - .5rem);
+		margin: 1rem auto;
+		background-color: map-get($cores,'azul');
+		box-shadow: 0 4px 12px rgba(0,0,0,.15);
+	}
+
+}
+
+
+.flex {
+	display: -ms-flexbox;
+	display: flex;
+	-ms-flex-wrap: wrap;
+	flex-wrap: wrap;
+	padding: .75rem .25rem;
+	align-items: center;
+
+	.box {
+		max-width: 100%;
+		-webkit-box-flex: 1;
+	    -ms-flex: 1 1 0px;
+		flex: 1 1 0;
+	}
+
+	.box-auto {
+		max-width: 100%;
+		-webkit-box-flex: 0;
+	    -ms-flex: 0 0 auto;
+		flex: 0 0 auto;
+	}
+}
+
+
+
+.logo {
+	margin-bottom: 4rem;
+	h1 {
+		color: #181818;
+		font-family: Arial, Helvetica, sans-serif;
+		font-size: 280%;
+		text-align: center;
+
+		> span {
+			display: block;
+			font-size: 62%;
+
+			&:first-child {
+				margin-top: -20px;
+				margin-bottom: -4px;
+			}
+
+			&:last-child {
+				font-size: 28%;
+			}
+		}
+	}
+}
+
+h4 {
+	color: map-get($cores,'azul');
+	text-align: center;
+	margin-bottom: 1.5rem;
+}
+
+.lembrar {
+	text-align: left;
+}
+
+.mat-grid-tile {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+}
+
+.botoes {
+	font-size: 86%;
+	color: #666666;
+
+	a {
+		color: #369;
+		text-decoration: none;
+	}
+}

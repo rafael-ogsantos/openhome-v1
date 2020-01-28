@@ -1,0 +1,83 @@
+<app-get-layout>
+	<section class="custom-page">
+		<app-get-title title="Inicio"></app-get-title>
+		
+		<div class="row align-items-stretch">
+			
+			<!-- Visualização -->
+			<div class="col">
+				<div class="box" data-type="Visualização">
+					<div class="row">
+						
+						<div class="col-12 col-sm-9 col-lg-8">
+							<div class="header">
+								<h4>{{ boxes.visualizacao.title }}</h4>
+								<mat-icon>keyboard_arrow_down</mat-icon>
+							</div>
+							<app-show-chart [data]="boxes.visualizacao.chart"></app-show-chart>
+						</div>
+
+						<div class="col-12 col-sm-3 col-lg-4">
+							<figure class="image">
+								<img [src]="boxes.visualizacao.imovel.image" alt="">
+							</figure>
+							<div class="nome">{{ boxes.visualizacao.imovel.title }}</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<!-- Valor a receber -->
+			<div class="col-12 col-lg-4">
+				
+				<div class="box" data-type="valores">
+					<div class="header">
+						<h4>{{ boxes.valor.title }}</h4>
+					</div>
+
+					<div class="selecionar row align-items-center">
+						<label for="" class="col-3">{{ boxes.valor.select.title }}</label>
+						<app-use-input [data]="boxes.valor.select.config" class="col-9"></app-use-input>
+					</div>
+
+					<div class="custos">
+						<div class="label">{{ boxes.valor.calc.imoveis.title }}</div>
+						<div class="valor m-mask">R$: {{ boxes.valor.calc.imoveis.valor * boxes.valor.select.config.selected}}.000</div>
+					</div>
+
+					<div class="custos">
+						<div class="label">{{ boxes.valor.calc.franqueados.title }}</div>
+						<div class="valor">R$: {{ boxes.valor.calc.franqueados.valor * boxes.valor.select.config.selected}}.000</div>
+					</div>
+
+				</div>
+
+			</div>
+
+			<!-- Mensagens -->
+			<div class="col-12 col-lg-6">
+				<div class="box">
+					<div class="header">
+						<h4>{{ boxes.messages.title }}</h4>
+					</div>
+
+					<div class="mensagens">						
+						<app-user-message *ngFor="let mensagem of boxes.messages.data" [data]="mensagem"></app-user-message>			
+					</div>
+				</div>
+			</div>
+
+			<!-- Vendas -->
+			<div class="col-12 col-lg-6">
+				<div class="box">
+					<div class="header">
+						<h4>{{ boxes.vendas.title }}</h4>
+					</div>
+					<app-show-chart [data]="boxes.vendas.chart"></app-show-chart>
+				</div>
+			</div>
+
+
+		</div>
+	</section>
+</app-get-layout>

@@ -1,0 +1,26 @@
+@import '../../../assets/scss/config';
+
+.mensagem {
+	margin: 0 0 2em 0;
+	text-decoration: none;
+
+	.avatar {
+		img {
+			border-radius: 50%;
+		}
+	}
+
+	.description {
+		h4 {
+			color: color('preto');
+			font-weight: 400;
+			margin-bottom: .25rem;
+		}
+
+		.caption {
+			color: rgba( color('preto'), .75 );
+			font-size: .86rem;
+			line-height: 1.2rem;
+		}
+	}
+}

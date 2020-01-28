@@ -1,0 +1,89 @@
+<div *ngIf="['text', 'tel', 'email', 'url', 'color', 'date', 'datetime-local', 'month', 'number', 'search', 'time', 'week'].indexOf(data.type) !== -1">
+	<mat-form-field [appearance]="data.appearance || 'outline'" [attr.class]="data.col + (!data.title ? ' input-no-title' : '')">
+		<mat-label *ngIf="data.title">{{ data.title }}</mat-label>
+		<input matInput [type]="data.type" [placeholder]="data.placeholder" [name]="data.name" [required]="data.required" [value]="data.value || ''" />
+		<mat-icon *ngIf="data.icon && data.icon.code" matPrefix>{{data.icon.code}}</mat-icon>		
+	</mat-form-field>
+</div>
+
+<div *ngIf="data.type == 'password'">
+	<mat-form-field [appearance]="data.appearance || 'outline'">
+		<mat-label *ngIf="data.title">{{ data.title }}</mat-label>
+		<input matInput placeholder="Enter your password" [type]="hide ? 'password' : (data.icon ? 'text' : 'password')" [name]="data.name">
+		<mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
+	</mat-form-field>
+</div>
+
+<div *ngIf="data.type == 'checkbox'">
+	<mat-slide-toggle [checked]="data.checked" [name]="data.name" [required]="data.required" [color]="data.color">{{ data.title }}</mat-slide-toggle>
+</div>
+
+<div *ngIf="data.type == 'btn-checkbox' && data.options" [class]="'custom-checkbox '+ data.col">
+	<div class="row">
+		
+		<mat-radio-group [(ngModel)]="data.selected" [value]="data.selected">
+			<mat-radio-button *ngFor="let opt of data.options" [value]="opt.value">
+               <span class="botao" [attr.data-color]="data.color" [attr.data-checked]="data.selected == opt.value">
+               	{{ opt.title }}
+               </span>
+			</mat-radio-button>
+		</mat-radio-group>
+		<input type="hidden" [name]="data.name" [value]="data.selected" [required]="data.required"  />
+
+		<!-- <label *ngFor="let opt of data.options" [for]="data.name +'-'+ opt.value" [class]="'btn-checkbox '+ (opt.col || 'col-4')">
+			<input type="radio" [name]="data.name" [id]="data.name +'-'+ opt.value" [value]="opt.value" [checked]="opt.checked" />
+			<span class="botao" [attr.data-color]="data.color">{{ opt.title }}</span>
+		</label> -->
+	</div>
+</div>
+
+<div class="select-field" *ngIf="data.type == 'select' && data.options">
+	<mat-form-field [appearance]="data.appearance || 'outline'" [attr.class]="data.col + (!data.title ? ' no-title' : '')">
+		<mat-label *ngIf="data.title">{{ data.title }}</mat-label>
+		<mat-select [required]="data.required" [(value)]="data.selected">
+		    <mat-option *ngFor="let opt of data.options" [value]="opt.value">
+		    	{{ opt.title }}
+		    </mat-option>
+		</mat-select>
+	</mat-form-field>
+	<input type="hidden" [name]="data.name" [value]="data.selected || ''" [required]="data.required"  />
+</div>
+
+<div *ngIf="data.type == 'textarea'">
+	<mat-form-field [appearance]="data.appearance || 'outline'">
+		<mat-label *ngIf="data.title">{{ data.title }}</mat-label>
+		<textarea matInput [type]="data.type" rows="6" [placeholder]="data.placeholder" [name]="data.name" [required]="data.required">{{data.value || ''}}</textarea>
+	</mat-form-field>
+</div>
+
+<div class="anexar-documento" *ngIf="data.type == 'upload-file'">
+	<label for="fileUploader" class="pdf-upload">
+		<button mat-flat-button [color]="data.color || primary">
+			<mat-icon>{{ data.icon || 'insert_drive_file' }}</mat-icon>
+			<span>{{ data.title || 'Anexar'}}</span>
+		</button>
+		<input type="file" id="fileUploader" [name]="data.name || 'file-upload'" #fileUpload (change)="checkFile(fileUpload)" [attr.accept]="data.accept" />
+	</label>
+	<div class="file-txt hidden">
+		<mat-icon>{{ data.icon || 'insert_drive_file' }}</mat-icon>
+		<span></span>
+	</div>
+</div>
+
+<div class="ctn-upload" *ngIf="data.type == 'upload-box'">
+	<label for="imgUploader" class="btn-upload">
+		<mat-icon>{{ data.icon || add_circle_outline }}</mat-icon>
+		<span>{{ data.title || 'Upload de foto ou video' }}</span>
+		<input type="file" id="imgUploader" [name]="data.name || 'img-upload'" #imgUpload (change)="checkIMG(imgUpload)" [attr.multiple]="data.multiple" [attr.accept]="data.accept" />
+	</label>
+</div>
+
+<div class="ctn-avatar" *ngIf="data.type == 'upload-avatar'">
+	<label for="imgAvatar">
+		<figure class="avatar">
+			<img *ngIf="data.avatar" [src]="data.avatar" />
+		</figure>
+		<div class="caption">Alterar imagem</div>
+	</label>
+	<input type="file" id="imgAvatar" [name]="data.name || 'img-avatar'" (change)="checkAvatar($event)" [accept]="data.accept" />
+</div>

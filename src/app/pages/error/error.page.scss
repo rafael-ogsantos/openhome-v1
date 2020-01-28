@@ -1,0 +1,26 @@
+@import '../../../assets/scss/config';
+
+.error {
+	position: relative;
+	z-index: 3;
+	text-align: center;
+	padding: 4rem 2rem;
+	color: rgba( color('preto'), .75 );
+
+	h2, b, strong {
+		color: color('preto');
+		// text-shadow: 0 2px 4px rgba(0,0,0,0.75);
+		letter-spacing: 700;
+		font-family: 'Roboto Slab', sans-serif;
+		font-weight: 700;
+	}
+
+	.caption {
+		padding: .5em;
+	}
+
+	.retornar {
+		display: inline-block;
+		margin: 1rem 0;
+	}
+}

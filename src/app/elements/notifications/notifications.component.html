@@ -1,0 +1,13 @@
+<a [matMenuTriggerFor]="notifs">
+	<mat-icon>notifications_none</mat-icon>
+	<div class="badge" *ngIf="badge">{{ count }}</div>
+</a>
+
+<mat-menu #notifs="matMenu" xPosition="before" class="nav-dropdown" [overlapTrigger]="false">
+	<ng-template matMenuContent>
+		<div class="notification-header">
+          <a routerLink="/notifications/all" class="ler-todas"><mat-icon>notifications</mat-icon>Ler todas</a>
+        </div>
+        <ng-content></ng-content>
+	</ng-template>
+</mat-menu>

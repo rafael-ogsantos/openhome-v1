@@ -1,0 +1,92 @@
+@import '../../../assets/scss/config';
+section {
+	padding: 2rem;
+
+	.header {
+		display: flex;
+		justify-content: space-between;
+		flex-wrap: nowrap;
+		align-items: center;
+
+		h3 {
+			padding: 0 1rem 1rem 1rem;
+			margin: 0;
+			color: color('azul');
+			font-weight: 400;
+			flex: 1 1 0;
+		}
+
+		.right {
+			flex: 0 0 auto;
+			display: inline-flex;
+
+			.form-group	{
+				position: relative;
+				padding: 0 .25rem;
+				flex: 1 1 0;
+
+				.mat-icon {
+					position: absolute;
+					top: 50%; left: 12px;
+					transform: translateY(-50%);
+					color: rgba( color('black'), .35 );
+
+					+ .form-control {
+				    	padding-left: 2.5em;
+					}
+				}
+
+				label {
+					display: inline-block;
+					vertical-align: middle;
+					margin: 0 .5em;
+				}
+
+				mat-select {
+					display: inline-block;
+				}
+
+				.form-control {
+				    padding: 1em;
+				    font-size: 90%;
+				    background-color: color('branco');
+				    outline: 1px solid rgba( color('black'), .12 );
+				    border: 0;
+				    max-width: 246px;
+				}
+			}
+		}
+	}
+}
+
+.doc-list {
+	padding: 2em 1em;
+
+	h4 {
+		color: rgba( color('preto'), .75 );
+		font-weight: 400;
+		margin-bottom: 1em;
+	}
+}
+
+.document {
+    background-color: #fff;
+    padding: 1em;
+    margin: .5rem auto;
+    display: inline-flex;
+    align-items: center;
+    color: color('azul');
+    box-shadow: 0 2px 6px rgba( color('black'), .12);
+    max-width: 960px;
+    width: calc( 100% - 1rem );
+
+    button, a {
+    	padding: .12em 2em;
+    	box-shadow: 0 4px 12px rgba( color('black'), .12 );
+    }
+
+    .name {
+	    padding: 0 1em;
+	    flex: 1 1 0;
+    }
+}

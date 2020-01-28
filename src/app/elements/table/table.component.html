@@ -1,0 +1,20 @@
+<table mat-table [dataSource]="data.data" class="mat-elevation-z8">
+
+  <!--- Note that these columns can be defined in any order.
+        The actual rendered columns are set as a property on the row definition" -->
+
+  <!-- Position Column -->
+  <ng-container *ngFor="let name of data.names; index as idx" [matColumnDef]="name">
+    <th mat-header-cell *matHeaderCellDef> {{ data.titles[idx] }} </th>
+    <td mat-cell *matCellDef="let element"> 
+      <img *ngIf="element.avatar && idx == 0" [src]="element.avatar" /> {{element[name]}}
+      <div *ngIf="name == 'acoes' && element.id">
+        <button mat-icon-button (click)="userDel(element.id)"><i class="sprite-icon del"></i></button>
+        <button mat-icon-button (click)="userEdit(element.id)"><i class="sprite-icon edit"></i></button>
+      </div>
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="data.names"></tr>
+  <tr mat-row *matRowDef="let row; columns: data.names;"></tr>
+</table>

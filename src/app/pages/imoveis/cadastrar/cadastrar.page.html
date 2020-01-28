@@ -1,0 +1,98 @@
+<app-get-layout>
+	
+	<form (submit)="setCadastro($event, f)" #f>
+		<section id="cadastrar">
+			<app-get-title title="Imóveis • Cadastrar"></app-get-title>
+
+			<div class="box">
+				<div class="header">
+					<h4>Dados do proprietário</h4>
+				</div>
+
+				<div class="formulario row" *ngIf="data.type">
+					<app-use-input [data]="data.type" [class]="data.type.col"></app-use-input>
+				</div>
+
+				<ng-container *ngIf="data.type.selected && data.regioes[data.type.selected]">
+					<div class="formulario row">
+						<ng-container *ngFor="let regiao of objectKeys(data.regioes)">
+							<ng-container *ngIf="regiao == data.type.selected">
+								<ng-container *ngFor="let input of data.regioes[regiao].proprietario">
+									<app-use-input [data]="input" [class]="input.col"></app-use-input>
+								</ng-container>
+							</ng-container>
+						</ng-container>
+					</div>
+				</ng-container>
+
+			</div>
+
+			<div class="box" *ngIf="data.regioes[data.type.selected] && data.regioes[data.type.selected].imovel">
+				<div class="header">
+					<h4>Dados do imóvel</h4>
+				</div>
+
+				<ng-container *ngIf="data.regioes[data.type.selected].type">
+					<div class="tipo-de-cliente">
+						<ng-container *ngFor="let regiao of objectKeys(data.regioes)">
+							<ng-container *ngIf="regiao == data.type.selected">
+								<app-use-input [data]="data.regioes[regiao].type" [class]="data.regioes[regiao].type.col"></app-use-input>
+
+								<div class="formulario row" *ngIf="data.regioes[regiao].type.selected">
+									<ng-container *ngFor="let input of data.regioes[regiao].imovel[data.regioes[regiao].type.selected]">										
+										<app-use-input [data]="input" [class]="input.col"></app-use-input>
+									</ng-container>
+								</div>
+							</ng-container>
+						</ng-container>
+					</div>
+				</ng-container>
+				
+				<ng-container *ngIf="!data.regioes[data.type.selected].type">
+					<div class="formulario row">
+						<ng-container *ngFor="let regiao of objectKeys(data.regioes)">
+							<ng-container *ngIf="regiao == data.type.selected">
+								<ng-container *ngFor="let input of data.regioes[regiao].imovel">
+									<app-use-input [data]="input" [class]="input.col"></app-use-input>
+								</ng-container>
+							</ng-container>
+						</ng-container>
+					</div>
+				</ng-container>
+
+
+			</div>
+
+			<div class="box" *ngIf="data.regioes[data.type.selected].preferencias && data.regioes[data.type.selected].preferencias.length > 0">
+				<div class="header">
+					<h4>Preferências</h4>
+				</div>
+
+				<ng-container *ngIf="data.regioes[data.type.selected]">
+					<div class="formulario row align-items-center">
+						<ng-container *ngFor="let regiao of objectKeys(data.regioes)">
+							<ng-container *ngIf="regiao == data.type.selected">
+								<app-use-input *ngFor="let input of data.regioes[regiao].preferencias" [data]="input" [class]="input.col"></app-use-input>
+							</ng-container>
+						</ng-container>
+					</div>
+				</ng-container>
+
+				<!-- <div class="formulario row align-items-center" *ngIf="data.regioes[data.type.selected].preferencias">
+					<app-use-input *ngFor="let input of data.regioes[data.type.selected].preferencias" [data]="input" [class]="input.col"></app-use-input>
+				</div> -->
+
+				<!-- <div class="row align-items-center" *ngIf="data.preferencias">
+					<app-use-input *ngFor="let input of data.regioes[data.type.selected].preferencias" [data]="input" [class]="input.col"></app-use-input>
+				</div> -->
+
+			</div>
+
+		</section>
+
+		<div class="btns-group">
+			<button mat-raised-button disabled routeLink="/">Cancelar</button>
+			<button mat-raised-button color="primary" button="submit">Cadastrar</button>
+		</div>
+	</form>
+</app-get-layout>

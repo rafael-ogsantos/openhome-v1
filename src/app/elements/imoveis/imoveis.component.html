@@ -1,0 +1,59 @@
+<button class="imovel">
+
+	<!-- Foto do imóvel -->
+	<figure class="thumbnail">
+		<img *ngIf="data.thumb" [src]="data.thumb" [alt]="data.title" />
+		<figcaption>{{ data.status || 'Venda' }}</figcaption>
+	</figure>
+	
+	<!-- Nome e Tipo do imóvel -->
+	<div class="description">
+		<div class="info">
+			<h4>{{ data.title || 'Nome do imóvel' }}</h4>
+			<div class="tipo-do-imovel">{{ data.tipo || 'Casa condomínio' }}</div>
+		</div>
+
+		<div class="options">
+			<a [matMenuTriggerFor]="options">
+				<mat-icon>more_vert</mat-icon>
+			</a>
+			<mat-menu #options="matMenu" xPosition="before">
+				<button mat-menu-item>Settings</button>
+				<button mat-menu-item>Help</button>
+			</mat-menu>
+		</div>
+	</div>
+	
+	<!-- Área total e Privativa -->
+	<div class="area">
+		
+		<div class="area-total" *ngIf="data.area && data.area.total">
+			<b>Área Total:</b>
+			<span>{{ data.area.total || '0' }}</span>
+		</div>
+
+		<div class="area-privativa" *ngIf="data.area && data.area.privativa">
+			<b>Área Privativa:</b>
+			<span>{{ data.area.privativa || '0' }}</span>
+		</div>
+
+		<div class="quartos">
+			<b><i class="sprite-icon bed"></i></b>
+			<span>{{ data.quartos || '0' }} quartos</span>
+		</div>
+
+		<div class="banheiros">
+			<b><i class="sprite-icon bath"></i></b>
+			<span>{{ data.banheiros || '0' }} banheiros</span>
+		</div>
+
+	</div>
+
+	<div #gmap class="g-map"></div>
+
+	<div class="valor-do-imovel">
+		<b>Valor:</b>
+		<span>{{ data.valor || 'R$: ??.??????,???' }}</span>
+	</div>
+
+</button>

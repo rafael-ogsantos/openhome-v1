@@ -1,0 +1,10 @@
+<div class="responsive-chart">
+	<canvas #myCanvas class="line-chart" baseChart height="142"
+            [datasets]="data.datasets"
+            [labels]="data.labels || lineChartLabels"
+            [options]="data.options || lineChartOptions"
+            [colors]="data.colors || lineChartColors"
+            [legend]="data.legend || lineChartLegend"
+            [chartType]="data.type || lineChartType"
+            (chartClick)="chartClicked($event)"></canvas>
+</div>

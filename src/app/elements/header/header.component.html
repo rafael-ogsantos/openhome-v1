@@ -1,0 +1,27 @@
+<header>
+  <app-use-brand size="brand"></app-use-brand>
+  <div class="spacer"></div>
+
+  <ul class="configs">
+    <li>
+      <!--
+        Tag para exibir as notificações.
+        Atributos:
+        - count = é o total de notificações novas ou não lidas
+        - max = é o número máximo para não atrapalha a forma do badge, padrão é 9, que exibirá 9+
+      -->
+      <app-notifications count="12" max="9">
+        <a routerLink="/notification-01" class="notification">
+          <h4>Notification #01</h4>
+            <span class="caption">
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt dolor consequatur placeat accusantium reprehenderit rerum, amet atque culpa vero, temporibus cum eaque labore eveniet dicta!
+            </span>
+        </a>
+      </app-notifications>
+    </li>
+    
+    <li>      
+      <a routerLink="/login"><img src="./assets/img/avatar.png" /></a>
+    </li>
+  </ul>
+</header>

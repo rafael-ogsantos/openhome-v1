@@ -1,0 +1,35 @@
+table {
+  width: 100%;
+  margin: 2em 0;
+
+	tr.mat-footer-row, tr.mat-row {
+		height: 60px;
+	}
+}
+
+.mat-column-acoes {
+	text-align: center;
+}
+
+.mat-cell {
+	img {
+		border-radius: 50%;
+		vertical-align: middle;
+		margin-right: .5em;
+		width: 32px;
+		height: 32px;
+	}
+}
+
+.sprite-icon {
+	display: inline-block;
+	width: 24px;
+	height: 24px;
+	background-image: url('../../../assets/img/sprite.png');
+	background-position: 0 0;
+	background-repeat: no-repeat;
+
+	&.del {
+		background-position-y: -24px;
+	}
+}

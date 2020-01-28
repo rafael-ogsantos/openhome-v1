@@ -1,0 +1,39 @@
+<app-get-layout>
+
+<form (submit)="setCadastro($event, f)" #f>
+	<section id="crm">
+		<app-get-title title="CRM • Novo"></app-get-title>
+
+		<div class="box">
+			<div class="header">
+				<h4>Selecione</h4>
+			</div>
+
+			<div class="tipo-de-cliente">
+				<app-use-input [data]="form.type" [class]="form.type.col"></app-use-input>
+			</div>
+
+			<div class="formulario row">
+				<ng-container *ngIf="form[form.type.selected]">
+					<ng-container *ngFor="let items of form.type.options">
+						<ng-container *ngIf="items.value == form.type.selected && form[form.type.selected]">
+							<app-use-input *ngFor="let input of form[form.type.selected]" [data]="input" [class]="input.col"></app-use-input>
+						</ng-container>
+					</ng-container>
+				</ng-container>
+			</div>
+
+			<!-- <div class="formulario row" *ngIf="inputs">
+				<app-use-input *ngFor="let input of inputs" [data]="input" [class]="input.col"></app-use-input>
+			</div> -->
+		</div>
+
+		<div class="btns-group">
+			<button mat-raised-button disabled routeLink="/">Cancelar</button>
+			<button mat-raised-button color="primary" button="submit">Cadastrar</button>
+		</div>
+
+	</section>
+</form>
+
+</app-get-layout>

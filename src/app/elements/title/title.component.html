@@ -1,0 +1,24 @@
+<div class="header">
+	<h3 *ngIf="titulo">{{ titulo }}</h3>
+
+	<div class="right">
+		<div *ngIf="buscar">
+			<div class="form-group">
+				<mat-icon>search</mat-icon>
+				<input class="form-control" type="search" [placeholder]="buscar.title" (keyup)="Searching($event)" />
+			</div>
+		</div>
+
+		<div *ngIf="filter && filter.options.length > 0">
+			<div class="form-group">
+				<label>Filtrar</label>
+				<mat-select class="form-control" [(value)]="filter.selected">
+				    <mat-option *ngFor="let opt of filter.options" [value]="opt.value">
+				    	{{ opt.title }}
+				    </mat-option>
+				</mat-select>
+			</div>
+		</div>
+	</div>
+
+</div>

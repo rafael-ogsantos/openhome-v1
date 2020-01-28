@@ -1,0 +1,10 @@
+<a [routerLink]="data.url" class="mensagem row">
+	<figure class="avatar col-auto">
+		<img [src]="data.avatar.url" [width]="data.avatar.width || 32" [height]="data.avatar.height || 32" alt="" />
+	</figure>
+
+	<div class="description col">
+		<h4>{{ data.name }}</h4>
+		<div class="caption">{{ data.caption }}</div>
+	</div>
+</a>

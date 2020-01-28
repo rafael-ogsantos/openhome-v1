@@ -1,0 +1,9 @@
+.responsive-chart {
+	position: relative;
+	display: block;
+
+	.line-chart {
+		// position: absolute;
+		width: 100% !important;
+	}
+}

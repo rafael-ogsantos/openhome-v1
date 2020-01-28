@@ -1,0 +1,115 @@
+@import '../../../assets/scss/config';
+
+section {
+	padding: 2em;
+
+	h3 {
+		padding: 0 1em 1em 1em;
+		margin: -.5em 0 0 0;
+		color: color('azul');
+		font-weight: 400;
+	}
+
+	.box {
+		background-color: color('white');
+		box-shadow: 0 2px 6px rgba(color('black'), .15);
+		padding: 1em 2em;
+		margin: .5em;
+
+		.header {
+			display: flex;
+			justify-content: space-between;
+			padding-top: 1rem;
+			padding-bottom: 2rem;
+			color: color('azul');
+
+			h4 {
+				margin: 0;
+				font-weight: 400;
+			}
+
+		}
+	}
+
+	figure.image {
+	    margin: 0;
+	    text-align: center;
+	    line-height: 0;
+	    font-size: 0;
+	    padding: .25rem;
+	}
+
+	.nome {
+		color: color('azul');
+		font-weight: 700;
+		padding: .5rem;
+	}
+
+	.selecionar {
+		label {
+			text-align: center;
+			padding-bottom: 1.25rem;
+			font-size: 0.86rem;
+			color: rgba( color('preto'), .75 );
+		}
+
+	}
+
+	.custos {
+
+		.label {
+			color: rgba( color('preto'), .75 );
+			font-size: 0.86rem;
+		}
+
+		.valor {
+			color: color('verde');
+			font-size: 1.4em;
+			padding: .5rem 0;
+		}
+	}
+
+
+
+	.mensagens {
+		margin: 0 -1em;
+
+		.mensagem {
+			margin: 2.5em 0;
+
+			&::after {
+				content: '';
+				clear: both;
+				display: table;
+			}
+
+			&:first-child {
+				margin-top: 0;
+			}
+
+			&:last-child {
+				margin-bottom: 2em;
+			}
+
+			.avatar {
+				img {
+					border-radius: 50%;
+				}
+			}
+
+			.description {
+				h4 {
+					color: color('preto');
+					font-weight: 400;
+					margin-bottom: .25rem;
+				}
+
+				.caption {
+					color: rgba( color('preto'), .75 );
+					font-size: .86rem;
+					line-height: 1.2rem;
+				}
+			}
+		}
+	}
+}

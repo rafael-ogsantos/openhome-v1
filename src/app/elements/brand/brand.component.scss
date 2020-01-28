@@ -1,0 +1,59 @@
+.use-brand {
+	margin-bottom: 2rem;
+	h1 {
+		color: #181818;
+		font-family: Arial, Helvetica, sans-serif;
+		font-size: 280%;
+		text-align: center;
+
+		> span {
+			display: block;
+			font-size: 62%;
+
+			&:first-child {
+				margin-top: -20px;
+				margin-bottom: -4px;
+			}
+
+			&:last-child {
+				font-size: 28%;
+			}
+		}
+	}
+
+	&[data-type="mini"] {
+		margin-bottom: 0;
+		h1 { font-size: 120%;
+    		position: relative;
+		    top: -8px;
+    		margin-left: .5rem;
+			> span {
+				font-size: 46%;
+    			margin-top: -18px;
+   				margin-bottom: -23px;
+
+				&:last-child {
+					font-size: 28%;
+				}
+			}
+		}
+	}
+
+	&[data-type="brand"] {
+		margin-bottom: 0;
+		h1 { font-size: 150%;
+    		position: relative;
+		    top: 0;
+    		margin-left: .5rem;
+			> span {
+				font-size: 46%;
+    			margin-top: -8px;
+   				margin-bottom: 6px;
+
+				&:last-child {
+					font-size: 32%;
+				}
+			}
+		}
+	}
+}

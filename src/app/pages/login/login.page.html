@@ -1,0 +1,26 @@
+<section id="login">
+	
+	<app-use-brand></app-use-brand>
+	<h4>Entre com seus dados para realizar o login</h4>
+	
+	<form #f (submit)="checkLogin($event, f)">
+
+		<div class="form-group" *ngFor="let input of inputs">
+	      	<input class="form-control" [name]="input.name" [placeholder]="input.placeholder" [value]="input.value" [type]="input.type" />
+	    </div>
+
+	    <div class="flex botoes">
+          <div class="box">
+            <mat-checkbox color='primary' name="remember" class="lembrar">Lembrar de mim</mat-checkbox>
+          </div>
+          <div class="box-auto">
+            <a routerLink="/recuperar-senha">Recuperar senha</a>
+          </div>
+        </div>
+
+        <button mat-flat-button type="submit" class="btn-block">Entrar</button>
+
+      </form>
+
+</section>
+<div class="cover"></div>

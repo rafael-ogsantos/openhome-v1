@@ -1,0 +1,51 @@
+@import '../../../../assets/scss/config';
+
+section {
+	padding: 2rem;
+
+	h3 {
+		padding: 0 1rem 1rem 1rem;
+		margin: 0;
+		color: color('azul');
+		font-weight: 400;
+	}
+
+	.box {
+		background-color: color('white');
+		box-shadow: 0 2px 6px rgba(color('black'), .15);
+		padding: 1rem 2rem;
+		margin: 2rem;
+
+		.header {
+			display: flex;
+			justify-content: space-between;
+			padding-top: 1rem;
+			padding-bottom: 2rem;
+			color: color('azul');
+
+			h4 {
+				margin: 0;
+				font-weight: 400;
+			}
+
+		}
+	}
+}
+
+button[color="green"] {
+	background-color: color('verde');
+	color: color('branco');
+	margin: 0 4em 2em 4em;
+}
+
+.btns-group {
+    text-align: right;
+    padding: 2em 4em;
+    margin-top: -2em;
+
+	button {
+		margin: 0 .5em;
+		font-size: 1.4em;
+		padding: .5em 4em;
+	}
+}

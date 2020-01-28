@@ -1,0 +1,21 @@
+<app-get-layout>
+	
+	<section id="buscar-imoveis">
+		<app-get-title title="Imóveis • Buscar" [buscar]="buscar" [filter]="filtros"></app-get-title>
+		
+		<div class="imoveis-list row justify-content-start">
+			<ng-container *ngFor="let imovel of imoveis">
+				<ng-container *ngIf="checkQuery(imovel, buscar.value, filtros.selected)">
+					<div class="col-12 col-sm-6 col-md-4 col-lg-3">
+						<app-imoveis-list [data]="imovel"></app-imoveis-list>
+					</div>
+				</ng-container>
+			</ng-container>
+		</div>
+		
+		<app-paginacao [data]="paginacao"></app-paginacao>
+
+	</section>
+
+
+</app-get-layout>

@@ -1,0 +1,3 @@
+<div class="paginacao" *ngIf="data">
+	<a *ngFor="let i of Counter(data.start, data.end)" [class]="data.current == i ? 'active' : ''" [routerLink]="getUrl(data.base, i)">{{ i }}</a>
+</div>

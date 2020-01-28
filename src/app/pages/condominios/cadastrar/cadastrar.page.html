@@ -1,0 +1,76 @@
+<app-get-layout>
+
+<form (submit)="setCadastro($event, f)" #f>
+	<section id="cadastrar-condominios">	
+		<app-get-title title="Condomínios • Cadastrar"></app-get-title>
+
+		<div class="box">
+			<div class="header">
+				<h4>Cadastro de condomínio</h4>
+			</div>
+
+			<div class="formulario row" *ngIf="inputs">
+				<app-use-input *ngFor="let input of inputs" [data]="input" [class]="input.col"></app-use-input>
+			</div>
+
+		</div>
+
+		<div class="box">
+			<div class="header">
+				<h4>Construtora</h4>
+			</div>
+
+			<div class="formulario row" *ngIf="construtora">
+				<app-use-input *ngFor="let input of construtora" [data]="input" [class]="input.col"></app-use-input>
+			</div>
+
+		</div>
+
+		<div class="box">
+			<div class="header">
+				<h4>Responsável</h4>
+			</div>
+
+			<div class="formulario row" *ngIf="responsavel">
+				<app-use-input *ngFor="let input of responsavel" [data]="input" [class]="input.col"></app-use-input>
+			</div>
+
+		</div>
+
+		<ng-template #boxResponsavel>
+			<div class="box">
+				<div class="header">
+					<h4>Responsável</h4>
+				</div>
+
+				<div class="formulario row" *ngIf="novato">
+					<app-use-input *ngFor="let input of novato" [data]="input" [class]="input.col"></app-use-input>
+				</div>
+
+			</div>
+		</ng-template>
+
+		<div #novoBox></div>
+
+		<button type="button" mat-raised-button color="green" (click)="criarBox()">Adicionar um novo</button>
+
+
+		<div class="box">
+			<div class="header">
+				<h4>Preferências</h4>
+			</div>
+
+			<div class="row align-items-center">
+				<app-use-input *ngFor="let input of preferencias" [data]="input" [class]="input.col"></app-use-input>
+			</div>
+
+		</div>
+
+		<div class="btns-group">
+			<button mat-raised-button disabled routeLink="/">Cancelar</button>
+			<button mat-raised-button color="primary" button="submit">Cadastrar</button>
+		</div>
+	</section>
+</form>
+
+</app-get-layout>

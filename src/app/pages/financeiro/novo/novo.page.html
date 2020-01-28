@@ -1,0 +1,56 @@
+<app-get-layout>
+	
+<form (submit)="setCadastro($event, f)" #f>
+	<section id="buscar-imoveis">		
+		<app-get-title title="Financeiro • Novo" [filter]="filtros"></app-get-title>
+
+		<div class="box">
+			<div class="header">
+				<h4>Selecione uma despesa ou receita</h4>
+			</div>
+
+			<div class="formulario row">
+				<app-use-input [data]="inputs[0]" [class]="inputs[0].col"></app-use-input>
+
+				<div class="col-12">
+					<div class="document" *ngIf="doc">
+						<mat-icon>description</mat-icon>
+						<div class="name">{{ doc.title }}</div>
+						<a [href]="doc.url" target="_blank" mat-raised-button [color]="doc.button">Selecionar</a>
+					</div>
+				</div>
+
+				<app-use-input *ngFor="let input of inputs.slice(1)" [data]="input" [class]="input.col"></app-use-input>
+			</div>
+		</div>
+
+		<div class="box">
+			<div class="header">
+				<h4>Representante Legal</h4>
+			</div>
+
+			<div class="formulario row">
+				<app-use-input *ngFor="let input of representante" [data]="input" [class]="input.col"></app-use-input>
+			</div>
+		</div>
+
+		<div class="box">
+			<div class="header">
+				<h4>Financeiro</h4>
+			</div>
+
+			<div class="formulario row">
+				<app-use-input *ngFor="let input of financeiro" [data]="input" [class]="input.col"></app-use-input>
+			</div>
+		</div>
+
+
+		<div class="btns-group">
+			<button mat-raised-button disabled routeLink="/">Cancelar</button>
+			<button mat-raised-button color="primary" button="submit">Cadastrar</button>
+		</div>
+
+	</section>
+</form>
+
+</app-get-layout>

@@ -1,0 +1,59 @@
+@import '../../../assets/scss/config.scss';
+
+.header {
+	display: flex;
+	justify-content: space-between;
+	flex-wrap: nowrap;
+	align-items: center;
+
+	h3 {
+		padding: 0 1rem;
+		margin: 0;
+		color: color('azul');
+		font-weight: 400;
+		flex: 1 1 0;
+	}
+
+	.spacer { flex: 1 1 0; }
+
+	.right {
+		flex: 0 0 auto;
+		display: inline-flex;
+
+		.form-group	{
+			position: relative;
+			padding: 0 .25rem;
+			flex: 1 1 0;
+
+			.mat-icon {
+				position: absolute;
+				top: 50%; left: 12px;
+				transform: translateY(-50%);
+				color: rgba( #000, .35 );
+
+				+ .form-control {
+			    	padding-left: 2.5em;
+				}
+			}
+
+			label {
+				display: inline-block;
+				vertical-align: middle;
+				margin: 0 .5em;
+			}
+
+			mat-select {
+				display: inline-block;
+			}
+
+			.form-control {
+			    padding: 1em;
+			    font-size: 90%;
+			    background-color: color('branco');
+			    outline: 1px solid rgba( #000, .12 );
+			    border: 0;
+			    max-width: 246px;
+			}
+		}
+	}
+}
